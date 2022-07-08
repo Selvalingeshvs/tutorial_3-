@@ -1,0 +1,98 @@
+#include<stdio.h> 
+
+#include<string.h>
+
+int main()
+
+{
+   char string[100],word[20];
+
+   int i,j,strleng,wrdleng,temp,count=0,check,Flag=0;
+
+   gets(string);
+   
+gets(word);
+   
+strleng=strlen(string);//length of string
+   
+wrdleng=strlen(word);                    //length of word
+   
+for(i=0; i<strleng; i++)
+   
+{
+      temp=i;                             //  using one variale
+     
+ for(j=0;j<wrdleng;j++)             // going the increment process
+      
+{
+         
+if(string[i]==word[j])          //comparing the both
+            
+i++;
+  
+    }
+  
+    check=i-temp;
+
+      if(check==wrdleng)
+   
+      count++;
+  
+ }
+   
+for(i=0;string[i]!='\0'; i++)
+
+{
+
+if(string[i]==word[0])
+
+{
+
+Flag=1;                      //using onre variable
+for
+(j=0;word[j]!='\0';j++)                      //check if till \0
+
+{
+if(string[i+j]!=word[j])
+
+{
+
+Flag=0;
+
+break;
+
+}
+
+}
+
+}
+
+if(Flag==1)
+
+{
+break;
+
+}
+}
+
+if(Flag==0)                  // if the enter no is not there then printf this
+  
+{
+ 
+ printf("\n Sorry!! We haven't found the Word '%s' ", word);
+
+}
+
+else                               // if we have the entered no then print this
+
+{
+
+printf("\n We found '%s' at position %d ", word, i + 1);
+
+}
+
+printf("\nOccurrence = %d",count);
+  
+ return 0;
+
+}
